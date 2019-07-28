@@ -49,7 +49,7 @@ public class Patient {
 
 	@Column(name = "sex")
 	@Enumerated(EnumType.STRING)
-	private PatientSex Sex;
+	private PatientSex sex;
 
 	@Column(name = "city", nullable = false)
 	private String city;
@@ -113,11 +113,11 @@ public class Patient {
 	}
 
 	public PatientSex getSex() {
-		return Sex;
+		return sex;
 	}
 
 	public void setSex(PatientSex sex) {
-		Sex = sex;
+		this.sex = sex;
 	}
 
 	public String getCity() {
