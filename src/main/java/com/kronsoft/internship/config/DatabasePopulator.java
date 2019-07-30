@@ -38,7 +38,7 @@ public class DatabasePopulator {
 			patient.setCity("Brasov");
 			patient.setPhoneNumber("0123456");
 			patient.setSex(PatientSex.UNDEFINED);
-			patient.setPin("1111111111111");
+			patient.setPin("11111111111"+i);
 			Appoiment appoiment= new Appoiment();
 			appoiment.setPatient(patient);
 			appoiment.setAppoimentDescription("description");

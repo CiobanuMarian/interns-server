@@ -40,14 +40,14 @@ public class Patient {
 	@Column(name = "patient_last_name", nullable = false, length = 100)
 	private String lastName;
 
-	@Column(name = "birth_date")
+	@Column(name = "birth_date",nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 
-	@Column(name = "PIN", nullable = false, length = 13)
+	@Column(name = "PIN", nullable = false, length = 13,unique=true)
 	private String pin;
 
-	@Column(name = "sex")
+	@Column(name = "sex",nullable=false)
 	@Enumerated(EnumType.STRING)
 	private PatientSex sex;
 
@@ -57,7 +57,7 @@ public class Patient {
 	@Column(name = "country", nullable = false)
 	private String country;
 
-	@Column(name = "phone_number")
+	@Column(name = "phone_number",nullable=false)
 	private String phoneNumber;
 
 	@JsonIgnore

@@ -24,8 +24,6 @@ public class PatientController {
 	@Autowired
 	private PatientRepository patientRepository;
 
-	@Autowired
-	private AppoimentRepository appoimentRepository;
 
 	// Gel all patients from DB
 	@GetMapping(value = "/patients", produces = MediaType.APPLICATION_JSON_VALUE)
