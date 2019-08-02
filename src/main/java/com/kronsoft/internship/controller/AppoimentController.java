@@ -49,7 +49,7 @@ public class AppoimentController {
 	}
 
 	// Delete a patient, it requires a id parameter so we have to
-	// provide the id via the link example : patient/delete?id=3149 (Query parameter)
+	// provide the id via the link example : appoiment/delete?id=3149 (Query parameter)
 	@DeleteMapping(value = "/appoiment/delete")
 	public void deleteAppoiment(@RequestParam Long id) {
 		if (this.appoimentRepository.existsById(id))

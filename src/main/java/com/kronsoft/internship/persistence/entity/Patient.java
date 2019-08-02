@@ -61,8 +61,8 @@ public class Patient {
 	private String phoneNumber;
 
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "patient", orphanRemoval = true)
-	List<Appoiment> appoiments = new ArrayList<>();
+	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.REMOVE}, mappedBy = "patient", orphanRemoval = true)
+	private List<Appoiment> appoiments = new ArrayList<>();
 
 	public List<Appoiment> getAppoiments() {
 		return appoiments;
