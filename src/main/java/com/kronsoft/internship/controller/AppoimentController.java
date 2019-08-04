@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kronsoft.internship.persistence.entity.Appoiment;
+import com.kronsoft.internship.persistence.entity.Patient;
 import com.kronsoft.internship.persistence.repositories.AppoimentRepository;
 
 @RestController
@@ -41,6 +42,15 @@ public class AppoimentController {
 			appoiment = appoimentOpt.get();
 		return appoiment;
 	}
+	
+	
+	//Function to get the appoiments from a specific patient
+//	@GetMapping(value="/appoiment/patientAppoiments", produces=MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public List<Appoiment> showPatientAppoiments(@RequestBody Patient patient)
+//	{
+//		List<Appoiment> appoiments=this.appoimentRepository.findByPatient(patient);
+//		return appoiments;
+//	}
 
 	// Create a appoiment, it requires a body
 	@PostMapping(value = "/appoiment/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

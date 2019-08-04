@@ -22,7 +22,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kronsoft.internship.persistence.entity.enums.PatientSex;
 
 @Entity
@@ -60,9 +62,11 @@ public class Patient {
 	@Column(name = "phone_number",nullable=false)
 	private String phoneNumber;
 
+	
+	//I manage the appoiments so the list is poi
 	@JsonIgnore
 	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.REMOVE}, mappedBy = "patient", orphanRemoval = true)
-	private List<Appoiment> appoiments = new ArrayList<>();
+	private List<Appoiment> appoiments=new ArrayList<>();
 
 	public List<Appoiment> getAppoiments() {
 		return appoiments;
