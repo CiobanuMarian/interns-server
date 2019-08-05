@@ -7,12 +7,12 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.kronsoft.internship.persistence.entity.Appoiment;
+import com.kronsoft.internship.persistence.entity.Appointment;
 import com.kronsoft.internship.persistence.entity.Patient;
-import com.kronsoft.internship.persistence.entity.enums.AppoimentStatus;
-import com.kronsoft.internship.persistence.entity.enums.AppoimentType;
+import com.kronsoft.internship.persistence.entity.enums.AppointmentStatus;
+import com.kronsoft.internship.persistence.entity.enums.AppointmentType;
 import com.kronsoft.internship.persistence.entity.enums.PatientSex;
-import com.kronsoft.internship.persistence.repositories.AppoimentRepository;
+import com.kronsoft.internship.persistence.repositories.AppointmentRepository;
 import com.kronsoft.internship.persistence.repositories.PatientRepository;
 
 @Component
@@ -22,7 +22,7 @@ public class DatabasePopulator {
 	private PatientRepository patientRepository;
 
 	@Autowired
-	private AppoimentRepository appoimentRepository;
+	private AppointmentRepository appoimentRepository;
 
 	@PostConstruct
 	public void populateDatabase() {
@@ -36,16 +36,16 @@ public class DatabasePopulator {
 			patient.setLastName(""+i);
 			patient.setCountry("Romania");
 			patient.setCity("Brasov");
-			patient.setPhoneNumber("0123456");
+			patient.setPhoneNumber("0752541454");
 			patient.setSex(PatientSex.UNDEFINED);
 			patient.setPin("11111111111"+i);
-			Appoiment appoiment= new Appoiment();
-			appoiment.setPatient(patient);
-			appoiment.setAppoimentDescription("description");
-			appoiment.setAppoimentStatus(AppoimentStatus.CREATED);
-			appoiment.setAppoimentType(AppoimentType.REGULAR);
+			Appointment appointment= new Appointment();
+			appointment.setPatient(patient);
+			appointment.setAppointmentDescription("description");
+			appointment.setAppointmentStatus(AppointmentStatus.CREATED);
+			appointment.setAppointmentType(AppointmentType.REGULAR);
 			this.patientRepository.save(patient);
-			this.appoimentRepository.save(appoiment);
+			this.appoimentRepository.save(appointment);
 		}
 
 	}

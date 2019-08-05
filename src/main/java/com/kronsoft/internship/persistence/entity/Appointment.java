@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,26 +17,24 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.kronsoft.internship.persistence.entity.enums.AppoimentStatus;
-import com.kronsoft.internship.persistence.entity.enums.AppoimentType;
+import com.kronsoft.internship.persistence.entity.enums.AppointmentStatus;
+import com.kronsoft.internship.persistence.entity.enums.AppointmentType;
 
 @Entity
-@Table(name = "appoiments")
-public class Appoiment {
+@Table(name = "appointments")
+public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@Column(name = "appoiment_id", unique = true, nullable = false)
+	@Column(name = "appointment_id", unique = true, nullable = false)
 	private Long id;
 	
-	@Column(name="appoiment_type")
+	@Column(name="appointment_type")
 	@Enumerated(EnumType.STRING)
-	private AppoimentType appoimentType;
+	private AppointmentType appointmentType;
 	
-	@Column(name="appoiment_status")
+	@Column(name="appointment_status")
 	@Enumerated(EnumType.STRING)
-	private AppoimentStatus appoimentStatus;
+	private AppointmentStatus appointmentStatus;
 	
 	
 	@Column(name="start_time")
@@ -48,8 +45,8 @@ public class Appoiment {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endTime;
 	
-	@Column(name="appoiment_description")
-	private String appoimentDescription;
+	@Column(name="appointment_description")
+	private String appointmentDescription;
 	
 	@ManyToOne
 	@JoinColumn(name="patient_id")
@@ -63,20 +60,20 @@ public class Appoiment {
 		this.id = id;
 	}
 
-	public AppoimentType getAppoimentType() {
-		return appoimentType;
+	public AppointmentType getAppointmentType() {
+		return appointmentType;
 	}
 
-	public void setAppoimentType(AppoimentType appoimentType) {
-		this.appoimentType = appoimentType;
+	public void setAppointmentType(AppointmentType appointmentType) {
+		this.appointmentType = appointmentType;
 	}
 
-	public AppoimentStatus getAppoimentStatus() {
-		return appoimentStatus;
+	public AppointmentStatus getAppointmentStatus() {
+		return appointmentStatus;
 	}
 
-	public void setAppoimentStatus(AppoimentStatus appoimentStatus) {
-		this.appoimentStatus = appoimentStatus;
+	public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
+		this.appointmentStatus = appointmentStatus;
 	}
 
 	public Date getStartTime() {
@@ -95,12 +92,12 @@ public class Appoiment {
 		this.endTime = endTime;
 	}
 
-	public String getAppoimentDescription() {
-		return appoimentDescription;
+	public String getAppointmentDescription() {
+		return appointmentDescription;
 	}
 
-	public void setAppoimentDescription(String appoimentDescription) {
-		this.appoimentDescription = appoimentDescription;
+	public void setAppointmentDescription(String appointmentDescription) {
+		this.appointmentDescription = appointmentDescription;
 	}
 
 	public Patient getPatient() {
@@ -111,5 +108,4 @@ public class Appoiment {
 		this.patient = patient;
 	}
 
-	
 }

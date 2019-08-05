@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kronsoft.internship.persistence.entity.Appoiment;
+import com.kronsoft.internship.persistence.entity.Appointment;
 import com.kronsoft.internship.persistence.entity.Patient;
 
-public interface AppoimentRepository extends JpaRepository<Appoiment, Long> {
-	List<Appoiment> findByPatient(Patient patient);
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
+	List<Appointment> findByPatient(Patient patient);
 }

@@ -1,5 +1,5 @@
 package com.kronsoft.internship.persistence.entity.enums;
 
-public enum AppoimentType {
+public enum AppointmentType {
 	REGULAR, HOLIDAY, VACATION, GROUP
 }

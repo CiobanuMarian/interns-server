@@ -2,29 +2,22 @@ package com.kronsoft.internship.persistence.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kronsoft.internship.persistence.entity.enums.PatientSex;
 
 @Entity
@@ -63,18 +56,10 @@ public class Patient {
 	private String phoneNumber;
 
 	
-	//I manage the appoiments so the list is poi
 	@JsonIgnore
 	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.REMOVE}, mappedBy = "patient", orphanRemoval = true)
-	private List<Appoiment> appoiments=new ArrayList<>();
+	private List<Appointment> appoiments=new ArrayList<>();
 
-	public List<Appoiment> getAppoiments() {
-		return appoiments;
-	}
-
-	public void setAppoiments(List<Appoiment> appoiments) {
-		this.appoiments = appoiments;
-	}
 
 	public Long getId() {
 		return id;
@@ -146,6 +131,14 @@ public class Patient {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public List<Appointment> getAppoiments() {
+		return appoiments;
+	}
+
+	public void setAppoiments(List<Appointment> appoiments) {
+		this.appoiments = appoiments;
 	}
 
 }

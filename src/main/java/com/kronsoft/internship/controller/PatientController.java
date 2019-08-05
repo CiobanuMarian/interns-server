@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kronsoft.internship.persistence.entity.Patient;
-import com.kronsoft.internship.persistence.repositories.AppoimentRepository;
 import com.kronsoft.internship.persistence.repositories.PatientRepository;
 
 @RestController
@@ -57,6 +56,8 @@ public class PatientController {
 			this.patientRepository.deleteById(id);
 	}
 	
+	
+	//Update
 	@PutMapping(value = "/patient/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Patient updatePatient(@RequestBody Patient patient) {
 		return this.patientRepository.save(patient);
